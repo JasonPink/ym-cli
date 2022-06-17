@@ -1,30 +1,7 @@
 #!/usr/bin/env node
 const program = require("commander");
 const chalk = require("chalk");
-const ora = require("ora");
 const figlet = require("figlet");
-// const spawn = require("cross-spawn");
-
-const spinner = ora("Loading");
-
-// const dependencies = ["vue", "vuex", "vue-router"];
-
-// // 执行安装
-// const child = spawn("npm", ["install", "-D"].concat(dependencies), {
-//   stdio: "inherit",
-// });
-// // 监听执行结果
-// child.on("close", function (code) {
-//   // 执行失败
-//   if (code !== 0) {
-//     console.log(chalk.red("Error occurred while installing dependencies!"));
-//     process.exit(1);
-//   }
-//   // 执行成功
-//   else {
-//     console.log(chalk.cyan("Install finished"));
-//   }
-// });
 
 program
   .command("create <project-name>")
@@ -34,7 +11,6 @@ program
     require("../lib/create")(name, options);
   });
 
-// 配置 config 命令
 program
   .command("config [value]")
   .description("inspect and modify the config")
@@ -45,7 +21,6 @@ program
     console.log(value, options);
   });
 
-// 配置 ui 命令
 program
   .command("ui")
   .description("start add open roc-cli ui")
@@ -59,7 +34,6 @@ program
   .usage("<command> [option]");
 
 program.on("--help", () => {
-  // 新增说明信息
   console.log(
     "\r\n" +
       figlet.textSync("yemeng", {
